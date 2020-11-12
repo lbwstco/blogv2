@@ -1,12 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>思•祎•委</title>
+        <title>思•祎委</title>
         <link>https://blog.lbwstco.vercel.app/</link>
-        <description>Recent content on 思•祎•委</description>
+        <description>Recent content on 思•祎委</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 11 Nov 2020 16:19:57 +0800</lastBuildDate><atom:link href="https://blog.lbwstco.vercel.app/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 12 Nov 2020 13:53:30 +0800</lastBuildDate><atom:link href="https://blog.lbwstco.vercel.app/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>追番之旅</title>
+        <link>https://blog.lbwstco.vercel.app/p/%E8%BF%BD%E7%95%AA%E4%B9%8B%E6%97%85/</link>
+        <pubDate>Thu, 12 Nov 2020 13:53:30 +0800</pubDate>
+        
+        <guid>https://blog.lbwstco.vercel.app/p/%E8%BF%BD%E7%95%AA%E4%B9%8B%E6%97%85/</guid>
+        <description>&lt;h3 id=&#34;背景&#34;&gt;背景&lt;/h3&gt;
+&lt;p&gt;随着年龄增长，陪娃成长带来自我时间的减少，追番也越来越少，简单记录下自己这些年的追番经历，大致可以分为以下几个阶段：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;租赁光盘&lt;/li&gt;
+&lt;li&gt;种子下载&lt;/li&gt;
+&lt;li&gt;B站 + 野鸡网站 (嘀哩嘀哩，樱花动漫)&lt;/li&gt;
+&lt;li&gt;Nas + Bgmi + Aria2&lt;/li&gt;
+&lt;li&gt;Nas + PT + Transmission&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;现状&#34;&gt;现状&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;新番&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用Bgmi订阅番剧，Nas设置定时脚本每天检索番剧更新，通过Aria2下载至Nas上，配置smb协议文件共享，使用nPlayer连接播放，仅在每季度开始几周更新下订阅即可。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;补番&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;若干PT站，配合Transmission下载食用。&lt;/p&gt;
+&lt;h3 id=&#34;简述追新番过程&#34;&gt;简述追新番过程&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Nas安装相关软件
+&lt;ul&gt;
+&lt;li&gt;Aria2&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/BGmi/BGmi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bgmi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Bgmi设置aria2-rpc配置项&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;ARIA2_RPC_URL=http://yourlocalip:6800/rpc
+ARIA2_RPC_TOKEN=token:yourtoken
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Nas设置Task Schedule 定时获取更新&lt;/li&gt;
+&lt;li&gt;Nas配置smb共享&lt;/li&gt;
+&lt;li&gt;nPlayer通过smb协议连接Nas&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>命令集</title>
         <link>https://blog.lbwstco.vercel.app/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</link>
         <pubDate>Wed, 11 Nov 2020 16:19:57 +0800</pubDate>
@@ -128,6 +172,7 @@
 &lt;li&gt;Pixel 4a&lt;/li&gt;
 &lt;li&gt;QNAP TS-453D&lt;/li&gt;
 &lt;li&gt;WD RED WD80EFAX 8TB * 4&lt;/li&gt;
+&lt;li&gt;BOOX Pocket 2 Color&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>

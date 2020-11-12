@@ -3,12 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.lbwstco.vercel.app/categories/</loc>
+    <lastmod>2020-11-12T13:53:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.lbwstco.vercel.app/categories/nas/</loc>
+    <lastmod>2020-11-12T13:53:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.lbwstco.vercel.app/post/</loc>
+    <lastmod>2020-11-12T13:53:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.lbwstco.vercel.app/tags/</loc>
+    <lastmod>2020-11-12T13:53:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.lbwstco.vercel.app/</loc>
+    <lastmod>2020-11-12T13:53:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.lbwstco.vercel.app/tags/%E7%95%AA%E5%89%A7/</loc>
+    <lastmod>2020-11-12T13:53:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.lbwstco.vercel.app/categories/%E7%95%AA%E5%89%A7/</loc>
+    <lastmod>2020-11-12T13:53:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.lbwstco.vercel.app/p/%E8%BF%BD%E7%95%AA%E4%B9%8B%E6%97%85/</loc>
+    <lastmod>2020-11-12T13:53:30+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.lbwstco.vercel.app/search/</loc>
     <lastmod>2020-11-12T11:05:35+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.lbwstco.vercel.app/post/</loc>
+    <loc>https://blog.lbwstco.vercel.app/tags/linux/</loc>
     <lastmod>2020-11-11T16:19:57+08:00</lastmod>
   </url>
   
@@ -18,8 +58,18 @@
   </url>
   
   <url>
-    <loc>https://blog.lbwstco.vercel.app/</loc>
-    <lastmod>2020-11-11T16:19:57+08:00</lastmod>
+    <loc>https://blog.lbwstco.vercel.app/tags/%E6%90%9E%E6%9C%BA/</loc>
+    <lastmod>2020-11-11T14:38:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.lbwstco.vercel.app/categories/%E6%90%9E%E6%9C%BA/</loc>
+    <lastmod>2020-11-11T14:38:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.lbwstco.vercel.app/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2020-11-11T14:38:11+08:00</lastmod>
   </url>
   
   <url>
@@ -35,14 +85,6 @@
   <url>
     <loc>https://blog.lbwstco.vercel.app/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.lbwstco.vercel.app/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://blog.lbwstco.vercel.app/tags/</loc>
   </url>
   
 </urlset>

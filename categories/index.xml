@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on 思•祎•委</title>
+    <title>Categories on 思•祎委</title>
     <link>https://blog.lbwstco.vercel.app/categories/</link>
-    <description>Recent content in Categories on 思•祎•委</description>
+    <description>Recent content in Categories on 思•祎委</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://blog.lbwstco.vercel.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Nov 2020 13:53:30 +0800</lastBuildDate><atom:link href="https://blog.lbwstco.vercel.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nas</title>
+      <link>https://blog.lbwstco.vercel.app/categories/nas/</link>
+      <pubDate>Thu, 12 Nov 2020 13:53:30 +0800</pubDate>
+      
+      <guid>https://blog.lbwstco.vercel.app/categories/nas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>番剧</title>
+      <link>https://blog.lbwstco.vercel.app/categories/%E7%95%AA%E5%89%A7/</link>
+      <pubDate>Thu, 12 Nov 2020 13:53:30 +0800</pubDate>
+      
+      <guid>https://blog.lbwstco.vercel.app/categories/%E7%95%AA%E5%89%A7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>搞机</title>
+      <link>https://blog.lbwstco.vercel.app/categories/%E6%90%9E%E6%9C%BA/</link>
+      <pubDate>Wed, 11 Nov 2020 14:38:11 +0800</pubDate>
+      
+      <guid>https://blog.lbwstco.vercel.app/categories/%E6%90%9E%E6%9C%BA/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
