@@ -3,8 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/</loc>
-    <lastmod>2020-11-11T16:19:57+08:00</lastmod>
+    <loc>https://example.com/search/</loc>
+    <lastmod>2020-11-12T11:05:35+08:00</lastmod>
   </url>
   
   <url>
@@ -18,8 +18,23 @@
   </url>
   
   <url>
+    <loc>https://example.com/</loc>
+    <lastmod>2020-11-11T16:19:57+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</loc>
     <lastmod>2020-11-11T14:38:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/about/</loc>
+    <lastmod>2020-11-11T14:22:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
