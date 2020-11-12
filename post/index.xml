@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 思•祎•委</title>
-    <link>https://example.com/post/</link>
+    <link>https://blog.lbwstco.vercel.app/post/</link>
     <description>Recent content in Posts on 思•祎•委</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Nov 2020 16:19:57 +0800</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Nov 2020 16:19:57 +0800</lastBuildDate><atom:link href="https://blog.lbwstco.vercel.app/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>命令集</title>
-      <link>https://example.com/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</link>
+      <link>https://blog.lbwstco.vercel.app/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</link>
       <pubDate>Wed, 11 Nov 2020 16:19:57 +0800</pubDate>
       
-      <guid>https://example.com/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</guid>
+      <guid>https://blog.lbwstco.vercel.app/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</guid>
       <description>上传文件至服务器  scp -i ~/.ssh/id_rsa_gcp -r ~/Downloads/kyrie2-top-nginx-1103105800/\*.kyrie2.top_chain.crt lbwstco@0.0.0.0:  查看文件占用  du -h --max-depth=1  查看内存占用  ps auxw|head -1;ps auxw|sort -rn -k4|head -10  删除群晖生成的文件  find / -regex &amp;#39;@SynoEASstream$&amp;#39; -and -t f --delete  查找并移动文件  find ~/Downloads/ -maxdepth 1 -type f -print0 | xargs -0 mv -t ~/Videos  NUC8i5BEH 去除菜单栏网口图标  fn=&amp;#34;.`date +%s`&amp;#34; &amp;amp;&amp;amp; sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu$fn &amp;amp;&amp;amp; sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu  修改地区为台湾 显示旗帜  sudo defaults write /Library/Preferences/.</description>
     </item>
     
     <item>
       <title>败家清单</title>
-      <link>https://example.com/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</link>
+      <link>https://blog.lbwstco.vercel.app/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</link>
       <pubDate>Wed, 11 Nov 2020 14:38:11 +0800</pubDate>
       
-      <guid>https://example.com/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</guid>
+      <guid>https://blog.lbwstco.vercel.app/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</guid>
       <description>一个久远的清单  Nokia N97 mini Nokia Lumia 920 Sony VPCEB27EC iPad 2 Vaonic VSD3 Nexus 5 RED Moto 360 rMbp 13 Cherry G80-3000 Kindle Paperwhite   这个清单是15年列的了，除了Moto 360，其他都败了，在服役的有rMbp 13、Cherry G80和KPW。
 换了Nuc黑果，rMbp基本在家吃土，偶尔会开机折腾下，Cherry配合家里基本不开机的PC。KPW用来看看漫画。
  15-20年之间败的家  Mi10 Pro Pixel 2 XL Nuc8i5BEH  枭鲸 16G * 2 Samsung 860EVO 500G   Galaxy Tab S4 Mi 6 (so) Galaxy Note 9 (so) Pixel C (so) iPhone X🅁 Airpods 2 Galaxy S7 Edge Dell U2515H * 2 Dell P2415Q iPad 2017 DS 218J  SEAGAT EXOS 8T SEAGAT EXOS 4T   PC  G.</description>

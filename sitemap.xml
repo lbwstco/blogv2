@@ -3,46 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/search/</loc>
+    <loc>https://blog.lbwstco.vercel.app/search/</loc>
     <lastmod>2020-11-12T11:05:35+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/post/</loc>
+    <loc>https://blog.lbwstco.vercel.app/post/</loc>
     <lastmod>2020-11-11T16:19:57+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</loc>
+    <loc>https://blog.lbwstco.vercel.app/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</loc>
     <lastmod>2020-11-11T16:19:57+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://blog.lbwstco.vercel.app/</loc>
     <lastmod>2020-11-11T16:19:57+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</loc>
+    <loc>https://blog.lbwstco.vercel.app/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</loc>
     <lastmod>2020-11-11T14:38:11+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://blog.lbwstco.vercel.app/about/</loc>
     <lastmod>2020-11-11T14:22:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/archives/</loc>
+    <loc>https://blog.lbwstco.vercel.app/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://blog.lbwstco.vercel.app/categories/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://blog.lbwstco.vercel.app/tags/</loc>
   </url>
   
 </urlset>
