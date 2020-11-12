@@ -5,6 +5,132 @@
         <link>https://example.com/</link>
         <description>Recent content on Example Site</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language>
+        <lastBuildDate>Wed, 11 Nov 2020 16:19:57 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>命令集</title>
+        <link>https://example.com/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</link>
+        <pubDate>Wed, 11 Nov 2020 16:19:57 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</guid>
+        <description>&lt;ul&gt;
+&lt;li&gt;上传文件至服务器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -i  ~/.ssh/id_rsa_gcp -r ~/Downloads/kyrie2-top-nginx-1103105800/&lt;span class=&#34;se&#34;&gt;\*&lt;/span&gt;.kyrie2.top_chain.crt lbwstco@0.0.0.0:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;查看文件占用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;du -h --max-depth&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;查看内存占用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps auxw&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;head -1&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;ps auxw&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;sort -rn -k4&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;head -10
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;删除群晖生成的文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;find / -regex &lt;span class=&#34;s1&#34;&gt;&amp;#39;@SynoEASstream$&amp;#39;&lt;/span&gt; -and -t f --delete
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;查找并移动文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;find ~/Downloads/ -maxdepth &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; -type f -print0 &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; xargs -0 mv -t ~/Videos
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;NUC8i5BEH 去除菜单栏网口图标&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;nv&#34;&gt;fn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;.`date +%s`&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv /System/Library/CoreServices/Menu&lt;span class=&#34;se&#34;&gt;\ &lt;/span&gt;Extras/ExpressCard.menu /System/Library/CoreServices/Menu&lt;span class=&#34;se&#34;&gt;\ &lt;/span&gt;Extras/ExpressCard.menu&lt;span class=&#34;nv&#34;&gt;$fn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo touch /System/Library/CoreServices/Menu&lt;span class=&#34;se&#34;&gt;\ &lt;/span&gt;Extras/ExpressCard.menu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;修改地区为台湾 显示旗帜&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo defaults write /Library/Preferences/.GlobalPreferences.plist Country -string &lt;span class=&#34;s2&#34;&gt;&amp;#34;TW&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;查看端口占用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;lsof -i tcp:8080 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;重启队列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;supervisorctl -c worker.conf restart all &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php7 artisan queue:restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Bgmi 查找番剧并下载&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;bgmi search &lt;span class=&#34;s2&#34;&gt;&amp;#34;灵笼：INCARNATION&amp;#34;&lt;/span&gt; --regex-filter &lt;span class=&#34;s2&#34;&gt;&amp;#34;.*\[10\].*&amp;#34;&lt;/span&gt; --download
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>败家清单</title>
+        <link>https://example.com/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</link>
+        <pubDate>Wed, 11 Nov 2020 14:38:11 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</guid>
+        <description>&lt;h3 id=&#34;一个久远的清单&#34;&gt;一个久远的清单&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Nokia N97 mini&lt;/li&gt;
+&lt;li&gt;Nokia Lumia 920&lt;/li&gt;
+&lt;li&gt;Sony VPCEB27EC&lt;/li&gt;
+&lt;li&gt;iPad 2&lt;/li&gt;
+&lt;li&gt;Vaonic VSD3&lt;/li&gt;
+&lt;li&gt;Nexus 5 RED&lt;/li&gt;
+&lt;li&gt;Moto 360&lt;/li&gt;
+&lt;li&gt;rMbp 13&lt;/li&gt;
+&lt;li&gt;Cherry G80-3000&lt;/li&gt;
+&lt;li&gt;Kindle Paperwhite&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个清单是15年列的了，除了Moto 360，其他都败了，在服役的有rMbp 13、Cherry G80和KPW。&lt;br&gt;
+换了Nuc黑果，rMbp基本在家吃土，偶尔会开机折腾下，Cherry配合家里基本不开机的PC。KPW用来看看漫画。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;15-20年之间败的家&#34;&gt;15-20年之间败的家&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Mi10 Pro&lt;/li&gt;
+&lt;li&gt;Pixel 2 XL&lt;/li&gt;
+&lt;li&gt;Nuc8i5BEH
+&lt;ul&gt;
+&lt;li&gt;枭鲸 16G * 2&lt;/li&gt;
+&lt;li&gt;Samsung 860EVO 500G&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Galaxy Tab S4&lt;/li&gt;
+&lt;li&gt;Mi 6 (so)&lt;/li&gt;
+&lt;li&gt;Galaxy Note 9 (so)&lt;/li&gt;
+&lt;li&gt;Pixel C (so)&lt;/li&gt;
+&lt;li&gt;iPhone X🅁&lt;/li&gt;
+&lt;li&gt;Airpods 2&lt;/li&gt;
+&lt;li&gt;Galaxy S7 Edge&lt;/li&gt;
+&lt;li&gt;Dell U2515H * 2&lt;/li&gt;
+&lt;li&gt;Dell P2415Q&lt;/li&gt;
+&lt;li&gt;iPad 2017&lt;/li&gt;
+&lt;li&gt;DS 218J
+&lt;ul&gt;
+&lt;li&gt;SEAGAT EXOS 8T&lt;/li&gt;
+&lt;li&gt;SEAGAT EXOS 4T&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;PC
+&lt;ul&gt;
+&lt;li&gt;G.Skill Trident Z DDR4 3000Hz 8GB * 2&lt;/li&gt;
+&lt;li&gt;Intel Extreme i7-5820K&lt;/li&gt;
+&lt;li&gt;ROG STRIX X99 GAMING&lt;/li&gt;
+&lt;li&gt;IN WIN 303&lt;/li&gt;
+&lt;li&gt;Corsair 750W RM750i&lt;/li&gt;
+&lt;li&gt;Corsair H100i V2&lt;/li&gt;
+&lt;li&gt;TT Riing 12cm * 6&lt;/li&gt;
+&lt;li&gt;ROG STRIX GTX-1070-8G&lt;/li&gt;
+&lt;li&gt;Samsung 960 Pro 256G SSD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Race 2&lt;/li&gt;
+&lt;li&gt;Keychron K1 (V3)&lt;/li&gt;
+&lt;li&gt;Keychron K2 (Swappable) + PBT Retro Mac Keycap Set&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;so =&amp;gt; sold out&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;心愿清单&#34;&gt;心愿清单&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Pixel 4a&lt;/li&gt;
+&lt;li&gt;QNAP TS-453D&lt;/li&gt;
+&lt;li&gt;WD RED WD80EFAX 8TB * 4&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
     </channel>
 </rss>
