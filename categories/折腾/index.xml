@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 思•祎委</title>
-    <link>https://blog.lbwstco.vercel.app/post/</link>
-    <description>Recent content in Posts on 思•祎委</description>
+    <title>折腾 on 思•祎委</title>
+    <link>https://blog.lbwstco.vercel.app/categories/%E6%8A%98%E8%85%BE/</link>
+    <description>Recent content in 折腾 on 思•祎委</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Nov 2023 14:53:40 +0800</lastBuildDate>
-    <atom:link href="https://blog.lbwstco.vercel.app/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.lbwstco.vercel.app/categories/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tailscale笔记</title>
       <link>https://blog.lbwstco.vercel.app/p/tailscale%E7%AC%94%E8%AE%B0/</link>
@@ -38,16 +38,6 @@ docker exec tailscaled tailscale up --advertise-exit-node --accept-dns=false --a
 内核 刷最新的官方 image(Android Q)，BL 在到手就已经解了（欧版），内核当然选择 sultan，稳定流畅功耗低。
 模块 Magisk 和 EdXposed 搞机必不可少。
 Magisk Ainur Narsil - 音效增强 Magisk Module for Recovery Mode - 救机 Riru Core Riru - Edxposed Riru - Location Report Enabler Wifi Bonding 90% 小圆体 by 霞骛 Edxposed GravityBox [Q] Instaprefs - Instagram 增强 NekoSMS - 短信屏蔽 XPrivacyLua - 权限管理 哔哩漫游 - 哔哩哔哩增强 NoWakeLock - WakeLock 限制 应用 阅读类 Legado - 小说 Tachiyomi - 漫画 Comic Screen - 本地漫画 Lithium 资讯类 NGA Hupu Inoreader Tiny Tiny Rss V2ex+ 社交类 Instagram Share - 微博 RedReader - Reddit Telegram 视频类 Anime X bilibili Netflix NewPipe ZYPlayer 游戏类 Clash of Clans Kindom of Rush Series Stardew Valley </description>
-    </item>
-    <item>
-      <title>追番之旅</title>
-      <link>https://blog.lbwstco.vercel.app/p/%E8%BF%BD%E7%95%AA%E4%B9%8B%E6%97%85/</link>
-      <pubDate>Thu, 12 Nov 2020 13:53:30 +0800</pubDate>
-      <guid>https://blog.lbwstco.vercel.app/p/%E8%BF%BD%E7%95%AA%E4%B9%8B%E6%97%85/</guid>
-      <description>背景 随着年龄增长，陪娃成长带来自我时间的减少，追番也越来越少，简单记录下自己这些年的追番经历，大致可以分为以下几个阶段：
-租赁光盘 种子下载 B 站 + 野鸡网站 (嘀哩嘀哩，樱花动漫) Nas + Bgmi + Aria2 Nas + PT + Transmission 现状 新番 使用 Bgmi 订阅番剧，Nas 设置定时脚本每天检索番剧更新，通过 Aria2 下载至 Nas 上，配置 smb 协议文件共享，使用 nPlayer 连接播放，仅在每季度开始几周更新下订阅即可。
-补番 若干 PT 站，配合 Transmission 下载食用。
-简述追新番过程 Nas 安装相关软件 Aria2 Bgmi Bgmi 设置 aria2-rpc 配置项 ARIA2_RPC_URL=http://yourlocalip:6800/rpc ARIA2_RPC_TOKEN=token:yourtoken Nas 设置 Task Schedule 定时获取更新 Nas 配置 smb 共享 nPlayer 通过 smb 协议连接 Nas </description>
     </item>
     <item>
       <title>命令集</title>

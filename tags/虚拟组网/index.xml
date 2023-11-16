@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>NAS on 思•祎委</title>
-    <link>https://blog.lbwstco.vercel.app/tags/nas/</link>
-    <description>Recent content in NAS on 思•祎委</description>
+    <title>虚拟组网 on 思•祎委</title>
+    <link>https://blog.lbwstco.vercel.app/tags/%E8%99%9A%E6%8B%9F%E7%BB%84%E7%BD%91/</link>
+    <description>Recent content in 虚拟组网 on 思•祎委</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Nov 2023 14:53:40 +0800</lastBuildDate>
-    <atom:link href="https://blog.lbwstco.vercel.app/tags/nas/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.lbwstco.vercel.app/tags/%E8%99%9A%E6%8B%9F%E7%BB%84%E7%BD%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tailscale笔记</title>
       <link>https://blog.lbwstco.vercel.app/p/tailscale%E7%AC%94%E8%AE%B0/</link>
@@ -17,16 +17,6 @@
 创建启动容器：
 docker run -d \ --name=tailscaled \ --network=host \ -v /var/lib:/var/lib \ -v /var/run:/var/run \ -v /dev/net/tun:/dev/net/tun \ -e TS_USERSPACE=0 \ -e TS_AUTHKEY=tskey-auth-... \ -e TS_ROUTES=192.168.10.0/24 \ -e TS_STATE_DIR=/var/lib/tailscale \ -e TS_SOCKET=/var/run/tailscale/tailscaled.sock \ -e TS_EXTRA_ARGS=&amp;#34;--accept-routes --advertise-exit-node --reset&amp;#34; \ -e TZ=Asia/Shanghai \ --cap-add=NET_ADMIN \ --cap-add=NET_RAW \ tailscale/tailscale 增加 Tailscale 启动配置：
 docker exec tailscaled tailscale up --advertise-exit-node --accept-dns=false --advertise-routes=192.168.10.0/24 --accept-routes Vps 端 因 Tailscale 官方的中转服务期都在国外，所以使用国内 Vps 搭建 Derp 中转服务器，以优化组网件设备互相访问。</description>
-    </item>
-    <item>
-      <title>追番之旅</title>
-      <link>https://blog.lbwstco.vercel.app/p/%E8%BF%BD%E7%95%AA%E4%B9%8B%E6%97%85/</link>
-      <pubDate>Thu, 12 Nov 2020 13:53:30 +0800</pubDate>
-      <guid>https://blog.lbwstco.vercel.app/p/%E8%BF%BD%E7%95%AA%E4%B9%8B%E6%97%85/</guid>
-      <description>背景 随着年龄增长，陪娃成长带来自我时间的减少，追番也越来越少，简单记录下自己这些年的追番经历，大致可以分为以下几个阶段：
-租赁光盘 种子下载 B 站 + 野鸡网站 (嘀哩嘀哩，樱花动漫) Nas + Bgmi + Aria2 Nas + PT + Transmission 现状 新番 使用 Bgmi 订阅番剧，Nas 设置定时脚本每天检索番剧更新，通过 Aria2 下载至 Nas 上，配置 smb 协议文件共享，使用 nPlayer 连接播放，仅在每季度开始几周更新下订阅即可。
-补番 若干 PT 站，配合 Transmission 下载食用。
-简述追新番过程 Nas 安装相关软件 Aria2 Bgmi Bgmi 设置 aria2-rpc 配置项 ARIA2_RPC_URL=http://yourlocalip:6800/rpc ARIA2_RPC_TOKEN=token:yourtoken Nas 设置 Task Schedule 定时获取更新 Nas 配置 smb 共享 nPlayer 通过 smb 协议连接 Nas </description>
     </item>
   </channel>
 </rss>
