@@ -6,15 +6,14 @@
     <description>Recent content in Linux on 思•祎委</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Nov 2020 16:19:57 +0800</lastBuildDate><atom:link href="https://blog.lbwstco.vercel.app/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Nov 2020 16:19:57 +0800</lastBuildDate>
+    <atom:link href="https://blog.lbwstco.vercel.app/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>命令集</title>
       <link>https://blog.lbwstco.vercel.app/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</link>
       <pubDate>Wed, 11 Nov 2020 16:19:57 +0800</pubDate>
-      
       <guid>https://blog.lbwstco.vercel.app/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</guid>
-      <description>上传文件至服务器  scp -i ~/.ssh/id_rsa_gcp -r ~/Downloads/kyrie2-top-nginx-1103105800/\*.kyrie2.top_chain.crt lbwstco@0.0.0.0:  查看文件占用  du -h --max-depth=1  查看内存占用  ps auxw|head -1;ps auxw|sort -rn -k4|head -10  删除群晖生成的文件  find / -regex &amp;#39;@SynoEASstream$&amp;#39; -and -t f --delete  查找并移动文件  find ~/Downloads/ -maxdepth 1 -type f -print0 | xargs -0 mv -t ~/Videos  NUC8i5BEH 去除菜单栏网口图标  fn=&amp;#34;.`date +%s`&amp;#34; &amp;amp;&amp;amp; sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu$fn &amp;amp;&amp;amp; sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu  修改地区为台湾 显示旗帜  sudo defaults write /Library/Preferences/.</description>
+      <description>上传文件至服务器 scp -i ~/.ssh/id_rsa_gcp -r ~/Downloads/kyrie2-top-nginx-1103105800/\*.kyrie2.top_chain.crt lbwstco@0.0.0.0: 查看文件占用 du -h --max-depth=1 查看内存占用 ps auxw|head -1;ps auxw|sort -rn -k4|head -10 删除群晖生成的文件 find / -regex &amp;#39;@SynoEASstream$&amp;#39; -and -t f --delete 查找并移动文件 find ~/Downloads/ -maxdepth 1 -type f -print0 | xargs -0 mv -t ~/Videos NUC8i5BEH 去除菜单栏网口图标 fn=&amp;#34;.`date +%s`&amp;#34; &amp;amp;&amp;amp; sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu$fn &amp;amp;&amp;amp; sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu 修改地区为台湾 显示旗帜 sudo defaults write /Library/Preferences/.GlobalPreferences.plist Country -string &amp;#34;TW&amp;#34; 查看端口占用 lsof -i tcp:8080 重启队列 supervisorctl -c worker.</description>
     </item>
-    
   </channel>
 </rss>

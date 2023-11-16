@@ -29,7 +29,7 @@
 
                 
                     
-                    <img src="/img/avatar_hu1add86ddb630746d572eee7b6c34c314_1778281_300x300_resize_box_2.png" width="300"
+                    <img src="/img/avatar_hu1add86ddb630746d572eee7b6c34c314_1778281_300x300_resize_box_3.png" width="300"
                         height="300" class="site-logo" loading="lazy" alt="Avatar">
                 
 
@@ -164,44 +164,44 @@
     <ul>
 <li>上传文件至服务器</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">scp -i  ~/.ssh/id_rsa_gcp -r ~/Downloads/kyrie2-top-nginx-1103105800/<span class="se">\*</span>.kyrie2.top_chain.crt lbwstco@0.0.0.0:
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">scp -i  ~/.ssh/id_rsa_gcp -r ~/Downloads/kyrie2-top-nginx-1103105800/<span class="se">\*</span>.kyrie2.top_chain.crt lbwstco@0.0.0.0:
+</span></span></code></pre></div><ul>
 <li>查看文件占用</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">du -h --max-depth<span class="o">=</span><span class="m">1</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">du -h --max-depth<span class="o">=</span><span class="m">1</span>
+</span></span></code></pre></div><ul>
 <li>查看内存占用</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ps auxw<span class="p">|</span>head -1<span class="p">;</span>ps auxw<span class="p">|</span>sort -rn -k4<span class="p">|</span>head -10
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ps auxw<span class="p">|</span>head -1<span class="p">;</span>ps auxw<span class="p">|</span>sort -rn -k4<span class="p">|</span>head -10
+</span></span></code></pre></div><ul>
 <li>删除群晖生成的文件</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">find / -regex <span class="s1">&#39;@SynoEASstream$&#39;</span> -and -t f --delete
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">find / -regex <span class="s1">&#39;@SynoEASstream$&#39;</span> -and -t f --delete
+</span></span></code></pre></div><ul>
 <li>查找并移动文件</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">find ~/Downloads/ -maxdepth <span class="m">1</span> -type f -print0 <span class="p">|</span> xargs -0 mv -t ~/Videos
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">find ~/Downloads/ -maxdepth <span class="m">1</span> -type f -print0 <span class="p">|</span> xargs -0 mv -t ~/Videos
+</span></span></code></pre></div><ul>
 <li>NUC8i5BEH 去除菜单栏网口图标</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">fn</span><span class="o">=</span><span class="s2">&#34;.`date +%s`&#34;</span> <span class="o">&amp;&amp;</span> sudo mv /System/Library/CoreServices/Menu<span class="se">\ </span>Extras/ExpressCard.menu /System/Library/CoreServices/Menu<span class="se">\ </span>Extras/ExpressCard.menu<span class="nv">$fn</span> <span class="o">&amp;&amp;</span> sudo touch /System/Library/CoreServices/Menu<span class="se">\ </span>Extras/ExpressCard.menu
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">fn</span><span class="o">=</span><span class="s2">&#34;.`date +%s`&#34;</span> <span class="o">&amp;&amp;</span> sudo mv /System/Library/CoreServices/Menu<span class="se">\ </span>Extras/ExpressCard.menu /System/Library/CoreServices/Menu<span class="se">\ </span>Extras/ExpressCard.menu<span class="nv">$fn</span> <span class="o">&amp;&amp;</span> sudo touch /System/Library/CoreServices/Menu<span class="se">\ </span>Extras/ExpressCard.menu
+</span></span></code></pre></div><ul>
 <li>修改地区为台湾 显示旗帜</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo defaults write /Library/Preferences/.GlobalPreferences.plist Country -string <span class="s2">&#34;TW&#34;</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo defaults write /Library/Preferences/.GlobalPreferences.plist Country -string <span class="s2">&#34;TW&#34;</span>
+</span></span></code></pre></div><ul>
 <li>查看端口占用</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">lsof -i tcp:8080 
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">lsof -i tcp:8080 
+</span></span></code></pre></div><ul>
 <li>重启队列</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">supervisorctl -c worker.conf restart all <span class="o">&amp;&amp;</span> php7 artisan queue:restart
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">supervisorctl -c worker.conf restart all <span class="o">&amp;&amp;</span> php7 artisan queue:restart
+</span></span></code></pre></div><ul>
 <li>Bgmi 查找番剧并下载</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">bgmi search <span class="s2">&#34;灵笼：INCARNATION&#34;</span> --regex-filter <span class="s2">&#34;.*\[10\].*&#34;</span> --download
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">bgmi search <span class="s2">&#34;灵笼：INCARNATION&#34;</span> --regex-filter <span class="s2">&#34;.*\[10\].*&#34;</span> --download
+</span></span></code></pre></div>
 </section>
 
 
@@ -244,7 +244,7 @@
     <div class="disqus-container">
     <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -277,7 +277,7 @@
     
 
     <footer class="site-footer">
-    <section class="copyright">&copy; 2020 思•祎委</section>
+    <section class="copyright">&copy; 2023 思•祎委</section>
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
         Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="1.1.0">Stack</a></b> designed by

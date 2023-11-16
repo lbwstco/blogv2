@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nas on 思•祎委</title>
+    <link>https://blog.lbwstco.vercel.app/tags/nas/</link>
+    <description>Recent content in Nas on 思•祎委</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Nov 2023 14:53:40 +0800</lastBuildDate>
+    <atom:link href="https://blog.lbwstco.vercel.app/tags/nas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tailscale笔记</title>
+      <link>https://blog.lbwstco.vercel.app/p/tailscale%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 16 Nov 2023 14:53:40 +0800</pubDate>
+      <guid>https://blog.lbwstco.vercel.app/p/tailscale%E7%AC%94%E8%AE%B0/</guid>
+      <description>Nas 端 运行 Tailscale，充当 exit node，配合家庭软路由 openwrt，实现其他组网设备利用全隧道模式扶墙。
+创建启动容器：
+docker run -d \ --name=tailscaled \ --network=host \ -v /var/lib:/var/lib \ -v /var/run:/var/run \ -v /dev/net/tun:/dev/net/tun \ -e TS_USERSPACE=0 \ -e TS_AUTHKEY=tskey-auth-... \ -e TS_ROUTES=192.168.10.0/24 \ -e TS_STATE_DIR=/var/lib/tailscale \ -e TS_SOCKET=/var/run/tailscale/tailscaled.sock \ -e TS_EXTRA_ARGS=&amp;#34;--accept-routes --advertise-exit-node --reset&amp;#34; \ -e TZ=Asia/Shanghai \ --cap-add=NET_ADMIN \ --cap-add=NET_RAW \ tailscale/tailscale 增加 Tailscale 启动配置：
+docker exec tailscaled tailscale up --advertise-exit-node --accept-dns=false --advertise-routes=192.168.10.0/24 --accept-routes Vps 端 因 Tailscale 官方的中转服务期都在国外，所以使用国内 Vps 搭建 Derp 中转服务器，以优化组网件设备互相访问。</description>
+    </item>
+  </channel>
+</rss>

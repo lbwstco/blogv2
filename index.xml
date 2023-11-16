@@ -6,7 +6,134 @@
         <description>Recent content on 思•祎委</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 12 Nov 2020 13:53:30 +0800</lastBuildDate><atom:link href="https://blog.lbwstco.vercel.app/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 16 Nov 2023 14:53:40 +0800</lastBuildDate><atom:link href="https://blog.lbwstco.vercel.app/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Tailscale笔记</title>
+        <link>https://blog.lbwstco.vercel.app/p/tailscale%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Thu, 16 Nov 2023 14:53:40 +0800</pubDate>
+        
+        <guid>https://blog.lbwstco.vercel.app/p/tailscale%E7%AC%94%E8%AE%B0/</guid>
+        <description>&lt;h2 id=&#34;nas-端&#34;&gt;Nas 端&lt;/h2&gt;
+&lt;p&gt;运行 Tailscale，充当 exit node，配合家庭软路由 openwrt，实现其他组网设备利用全隧道模式扶墙。&lt;/p&gt;
+&lt;p&gt;创建启动容器：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--name&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;tailscaled &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--network&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;host &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-v /var/lib:/var/lib &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-v /var/run:/var/run &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-v /dev/net/tun:/dev/net/tun &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;TS_USERSPACE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;TS_AUTHKEY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;tskey-auth-... &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;TS_ROUTES&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;192.168.10.0/24 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;TS_STATE_DIR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/var/lib/tailscale &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;TS_SOCKET&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/var/run/tailscale/tailscaled.sock &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;TS_EXTRA_ARGS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;--accept-routes --advertise-exit-node --reset&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;TZ&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Asia/Shanghai &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--cap-add&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;NET_ADMIN &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--cap-add&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;NET_RAW &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;tailscale/tailscale
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;增加 &lt;strong&gt;Tailscale&lt;/strong&gt; 启动配置：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; tailscaled tailscale up --advertise-exit-node --accept-dns&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;false&lt;/span&gt; --advertise-routes&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;192.168.10.0/24 --accept-routes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;vps-端&#34;&gt;Vps 端&lt;/h2&gt;
+&lt;p&gt;因 Tailscale 官方的中转服务期都在国外，所以使用国内 Vps 搭建 Derp 中转服务器，以优化组网件设备互相访问。&lt;/p&gt;
+&lt;p&gt;创建启动容器同 Nas 端（防止 derp 服务被白嫖）。&lt;/p&gt;
+&lt;p&gt;创建启动 Derp 容器：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run --restart always &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--name derper -p 12345:12345 -p 3478:3478/udp &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-v /var/run/tailscale/tailscaled.sock:/var/run/tailscale/tailscaled.sock &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;DERP_ADDR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;:12345 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;DERP_CERTS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/app/certs &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;DERP_VERIFY_CLIENTS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-d ghcr.io/yangchuansheng/ip_derper
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;其他终端iosandroid&#34;&gt;其他终端（iOS、Android&amp;hellip;)&lt;/h2&gt;
+&lt;p&gt;应用市场（美区 AppStore, Play Store)下载 Tailscale 客户端，登录账户，选择 Using exit node，开启 VPN 服务。&lt;/p&gt;
+&lt;p&gt;Android 端可利用 Tasker，连接家庭 Wi-Fi SSID 后自动断开 Tailscale，操作如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;连接对应 SSID，断开 Tailscale&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.lbwstco.vercel.app/img/tailscale-off.jpg&#34; alt=&#34;意图图示&#34;  /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;断开对应 SSID, 连接 Tailscale&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.lbwstco.vercel.app/img/task-on.jpg&#34; alt=&#34;Task图示&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.lbwstco.vercel.app/img/tailscale-on.jpg&#34; alt=&#34;意图图示&#34;  /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Pixel 2 XL折腾</title>
+        <link>https://blog.lbwstco.vercel.app/p/pixel-2-xl%E6%8A%98%E8%85%BE/</link>
+        <pubDate>Thu, 16 Nov 2023 14:33:25 +0800</pubDate>
+        
+        <guid>https://blog.lbwstco.vercel.app/p/pixel-2-xl%E6%8A%98%E8%85%BE/</guid>
+        <description>&lt;h3 id=&#34;缘灭&#34;&gt;缘灭&lt;/h3&gt;
+&lt;p&gt;刷了 LineageOS 20，当测试机了。&lt;/p&gt;
+&lt;h3 id=&#34;缘起&#34;&gt;缘起&lt;/h3&gt;
+&lt;p&gt;Nexus 5 坏了之后，心心念念还是想要台原生机器，随着 Pixel 2 XL 二手市场掉到了千元档，果断下手。&lt;br&gt;
+机器外观大概 8 新，屏幕左上角有很小的漏液，不怎么影响，这就开始折腾她了。&lt;/p&gt;
+&lt;h3 id=&#34;内核&#34;&gt;内核&lt;/h3&gt;
+&lt;p&gt;刷最新的官方 image(Android Q)，BL 在到手就已经解了（欧版），内核当然选择 sultan，稳定流畅功耗低。&lt;/p&gt;
+&lt;h3 id=&#34;模块&#34;&gt;模块&lt;/h3&gt;
+&lt;p&gt;Magisk 和 EdXposed 搞机必不可少。&lt;/p&gt;
+&lt;h4 id=&#34;magisk&#34;&gt;Magisk&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Ainur Narsil - 音效增强&lt;/li&gt;
+&lt;li&gt;Magisk Module for Recovery Mode - 救机&lt;/li&gt;
+&lt;li&gt;Riru Core&lt;/li&gt;
+&lt;li&gt;Riru - Edxposed&lt;/li&gt;
+&lt;li&gt;Riru - Location Report Enabler&lt;/li&gt;
+&lt;li&gt;Wifi Bonding&lt;/li&gt;
+&lt;li&gt;90% 小圆体 by 霞骛&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;edxposed&#34;&gt;Edxposed&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;GravityBox [Q]&lt;/li&gt;
+&lt;li&gt;Instaprefs - Instagram 增强&lt;/li&gt;
+&lt;li&gt;NekoSMS - 短信屏蔽&lt;/li&gt;
+&lt;li&gt;XPrivacyLua - 权限管理&lt;/li&gt;
+&lt;li&gt;哔哩漫游 - 哔哩哔哩增强&lt;/li&gt;
+&lt;li&gt;NoWakeLock - WakeLock 限制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;应用&#34;&gt;应用&lt;/h3&gt;
+&lt;h4 id=&#34;阅读类&#34;&gt;阅读类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Legado - 小说&lt;/li&gt;
+&lt;li&gt;Tachiyomi - 漫画&lt;/li&gt;
+&lt;li&gt;Comic Screen - 本地漫画&lt;/li&gt;
+&lt;li&gt;Lithium&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;资讯类&#34;&gt;资讯类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;NGA&lt;/li&gt;
+&lt;li&gt;Hupu&lt;/li&gt;
+&lt;li&gt;Inoreader&lt;/li&gt;
+&lt;li&gt;Tiny Tiny Rss&lt;/li&gt;
+&lt;li&gt;V2ex+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;社交类&#34;&gt;社交类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Instagram&lt;/li&gt;
+&lt;li&gt;Share - 微博&lt;/li&gt;
+&lt;li&gt;RedReader - Reddit&lt;/li&gt;
+&lt;li&gt;Telegram&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;视频类&#34;&gt;视频类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Anime X&lt;/li&gt;
+&lt;li&gt;bilibili&lt;/li&gt;
+&lt;li&gt;Netflix&lt;/li&gt;
+&lt;li&gt;NewPipe&lt;/li&gt;
+&lt;li&gt;ZYPlayer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;游戏类&#34;&gt;游戏类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Clash of Clans&lt;/li&gt;
+&lt;li&gt;Kindom of Rush Series&lt;/li&gt;
+&lt;li&gt;Stardew Valley&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>追番之旅</title>
         <link>https://blog.lbwstco.vercel.app/p/%E8%BF%BD%E7%95%AA%E4%B9%8B%E6%97%85/</link>
         <pubDate>Thu, 12 Nov 2020 13:53:30 +0800</pubDate>
@@ -41,7 +168,7 @@
 &lt;/li&gt;
 &lt;li&gt;Bgmi设置aria2-rpc配置项&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;ARIA2_RPC_URL=http://yourlocalip:6800/rpc
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ARIA2_RPC_URL=http://yourlocalip:6800/rpc
 ARIA2_RPC_TOKEN=token:yourtoken
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;Nas设置Task Schedule 定时获取更新&lt;/li&gt;
@@ -59,44 +186,44 @@ ARIA2_RPC_TOKEN=token:yourtoken
         <description>&lt;ul&gt;
 &lt;li&gt;上传文件至服务器&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -i  ~/.ssh/id_rsa_gcp -r ~/Downloads/kyrie2-top-nginx-1103105800/&lt;span class=&#34;se&#34;&gt;\*&lt;/span&gt;.kyrie2.top_chain.crt lbwstco@0.0.0.0:
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scp -i  ~/.ssh/id_rsa_gcp -r ~/Downloads/kyrie2-top-nginx-1103105800/&lt;span class=&#34;se&#34;&gt;\*&lt;/span&gt;.kyrie2.top_chain.crt lbwstco@0.0.0.0:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;查看文件占用&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;du -h --max-depth&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;du -h --max-depth&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;查看内存占用&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps auxw&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;head -1&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;ps auxw&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;sort -rn -k4&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;head -10
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ps auxw&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;head -1&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;ps auxw&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;sort -rn -k4&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;head -10
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;删除群晖生成的文件&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;find / -regex &lt;span class=&#34;s1&#34;&gt;&amp;#39;@SynoEASstream$&amp;#39;&lt;/span&gt; -and -t f --delete
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find / -regex &lt;span class=&#34;s1&#34;&gt;&amp;#39;@SynoEASstream$&amp;#39;&lt;/span&gt; -and -t f --delete
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;查找并移动文件&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;find ~/Downloads/ -maxdepth &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; -type f -print0 &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; xargs -0 mv -t ~/Videos
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find ~/Downloads/ -maxdepth &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; -type f -print0 &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; xargs -0 mv -t ~/Videos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;NUC8i5BEH 去除菜单栏网口图标&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;nv&#34;&gt;fn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;.`date +%s`&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv /System/Library/CoreServices/Menu&lt;span class=&#34;se&#34;&gt;\ &lt;/span&gt;Extras/ExpressCard.menu /System/Library/CoreServices/Menu&lt;span class=&#34;se&#34;&gt;\ &lt;/span&gt;Extras/ExpressCard.menu&lt;span class=&#34;nv&#34;&gt;$fn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo touch /System/Library/CoreServices/Menu&lt;span class=&#34;se&#34;&gt;\ &lt;/span&gt;Extras/ExpressCard.menu
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;fn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;.`date +%s`&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv /System/Library/CoreServices/Menu&lt;span class=&#34;se&#34;&gt;\ &lt;/span&gt;Extras/ExpressCard.menu /System/Library/CoreServices/Menu&lt;span class=&#34;se&#34;&gt;\ &lt;/span&gt;Extras/ExpressCard.menu&lt;span class=&#34;nv&#34;&gt;$fn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo touch /System/Library/CoreServices/Menu&lt;span class=&#34;se&#34;&gt;\ &lt;/span&gt;Extras/ExpressCard.menu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;修改地区为台湾 显示旗帜&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo defaults write /Library/Preferences/.GlobalPreferences.plist Country -string &lt;span class=&#34;s2&#34;&gt;&amp;#34;TW&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo defaults write /Library/Preferences/.GlobalPreferences.plist Country -string &lt;span class=&#34;s2&#34;&gt;&amp;#34;TW&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;查看端口占用&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;lsof -i tcp:8080 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lsof -i tcp:8080 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;重启队列&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;supervisorctl -c worker.conf restart all &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php7 artisan queue:restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;supervisorctl -c worker.conf restart all &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php7 artisan queue:restart
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Bgmi 查找番剧并下载&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;bgmi search &lt;span class=&#34;s2&#34;&gt;&amp;#34;灵笼：INCARNATION&amp;#34;&lt;/span&gt; --regex-filter &lt;span class=&#34;s2&#34;&gt;&amp;#34;.*\[10\].*&amp;#34;&lt;/span&gt; --download
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bgmi search &lt;span class=&#34;s2&#34;&gt;&amp;#34;灵笼：INCARNATION&amp;#34;&lt;/span&gt; --regex-filter &lt;span class=&#34;s2&#34;&gt;&amp;#34;.*\[10\].*&amp;#34;&lt;/span&gt; --download
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
         <title>败家清单</title>

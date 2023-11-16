@@ -6,17 +6,28 @@
     <description>Recent content in 搞机 on 思•祎委</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Nov 2020 14:38:11 +0800</lastBuildDate><atom:link href="https://blog.lbwstco.vercel.app/categories/%E6%90%9E%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Nov 2023 14:33:25 +0800</lastBuildDate>
+    <atom:link href="https://blog.lbwstco.vercel.app/categories/%E6%90%9E%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pixel 2 XL折腾</title>
+      <link>https://blog.lbwstco.vercel.app/p/pixel-2-xl%E6%8A%98%E8%85%BE/</link>
+      <pubDate>Thu, 16 Nov 2023 14:33:25 +0800</pubDate>
+      <guid>https://blog.lbwstco.vercel.app/p/pixel-2-xl%E6%8A%98%E8%85%BE/</guid>
+      <description>缘灭 刷了 LineageOS 20，当测试机了。
+缘起 Nexus 5 坏了之后，心心念念还是想要台原生机器，随着 Pixel 2 XL 二手市场掉到了千元档，果断下手。
+机器外观大概 8 新，屏幕左上角有很小的漏液，不怎么影响，这就开始折腾她了。
+内核 刷最新的官方 image(Android Q)，BL 在到手就已经解了（欧版），内核当然选择 sultan，稳定流畅功耗低。
+模块 Magisk 和 EdXposed 搞机必不可少。
+Magisk Ainur Narsil - 音效增强 Magisk Module for Recovery Mode - 救机 Riru Core Riru - Edxposed Riru - Location Report Enabler Wifi Bonding 90% 小圆体 by 霞骛 Edxposed GravityBox [Q] Instaprefs - Instagram 增强 NekoSMS - 短信屏蔽 XPrivacyLua - 权限管理 哔哩漫游 - 哔哩哔哩增强 NoWakeLock - WakeLock 限制 应用 阅读类 Legado - 小说 Tachiyomi - 漫画 Comic Screen - 本地漫画 Lithium 资讯类 NGA Hupu Inoreader Tiny Tiny Rss V2ex+ 社交类 Instagram Share - 微博 RedReader - Reddit Telegram 视频类 Anime X bilibili Netflix NewPipe ZYPlayer 游戏类 Clash of Clans Kindom of Rush Series Stardew Valley </description>
+    </item>
     <item>
       <title>败家清单</title>
       <link>https://blog.lbwstco.vercel.app/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</link>
       <pubDate>Wed, 11 Nov 2020 14:38:11 +0800</pubDate>
-      
       <guid>https://blog.lbwstco.vercel.app/p/%E8%B4%A5%E5%AE%B6%E6%B8%85%E5%8D%95/</guid>
-      <description>一个久远的清单  Nokia N97 mini Nokia Lumia 920 Sony VPCEB27EC iPad 2 Vaonic VSD3 Nexus 5 RED Moto 360 rMbp 13 Cherry G80-3000 Kindle Paperwhite   这个清单是15年列的了，除了Moto 360，其他都败了，在服役的有rMbp 13、Cherry G80和KPW。
+      <description>一个久远的清单 Nokia N97 mini Nokia Lumia 920 Sony VPCEB27EC iPad 2 Vaonic VSD3 Nexus 5 RED Moto 360 rMbp 13 Cherry G80-3000 Kindle Paperwhite 这个清单是15年列的了，除了Moto 360，其他都败了，在服役的有rMbp 13、Cherry G80和KPW。
 换了Nuc黑果，rMbp基本在家吃土，偶尔会开机折腾下，Cherry配合家里基本不开机的PC。KPW用来看看漫画。
- 15-20年之间败的家  Mi10 Pro Pixel 2 XL Nuc8i5BEH  枭鲸 16G * 2 Samsung 860EVO 500G   Galaxy Tab S4 Mi 6 (so) Galaxy Note 9 (so) Pixel C (so) iPhone X🅁 Airpods 2 Galaxy S7 Edge Dell U2515H * 2 Dell P2415Q iPad 2017 DS 218J  SEAGAT EXOS 8T SEAGAT EXOS 4T   PC  G.</description>
+15-20年之间败的家 Mi10 Pro Pixel 2 XL Nuc8i5BEH 枭鲸 16G * 2 Samsung 860EVO 500G Galaxy Tab S4 Mi 6 (so) Galaxy Note 9 (so) Pixel C (so) iPhone X🅁 Airpods 2 Galaxy S7 Edge Dell U2515H * 2 Dell P2415Q iPad 2017 DS 218J SEAGAT EXOS 8T SEAGAT EXOS 4T PC G.</description>
     </item>
-    
   </channel>
 </rss>

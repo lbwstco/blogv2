@@ -6,27 +6,24 @@
     <description>Recent content in 番剧 on 思•祎委</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Nov 2020 13:53:30 +0800</lastBuildDate><atom:link href="https://blog.lbwstco.vercel.app/tags/%E7%95%AA%E5%89%A7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Nov 2020 13:53:30 +0800</lastBuildDate>
+    <atom:link href="https://blog.lbwstco.vercel.app/tags/%E7%95%AA%E5%89%A7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>追番之旅</title>
       <link>https://blog.lbwstco.vercel.app/p/%E8%BF%BD%E7%95%AA%E4%B9%8B%E6%97%85/</link>
       <pubDate>Thu, 12 Nov 2020 13:53:30 +0800</pubDate>
-      
       <guid>https://blog.lbwstco.vercel.app/p/%E8%BF%BD%E7%95%AA%E4%B9%8B%E6%97%85/</guid>
       <description>背景 随着年龄增长，陪娃成长带来自我时间的减少，追番也越来越少，简单记录下自己这些年的追番经历，大致可以分为以下几个阶段：
- 租赁光盘 种子下载 B站 + 野鸡网站 (嘀哩嘀哩，樱花动漫) Nas + Bgmi + Aria2 Nas + PT + Transmission  现状  新番  使用Bgmi订阅番剧，Nas设置定时脚本每天检索番剧更新，通过Aria2下载至Nas上，配置smb协议文件共享，使用nPlayer连接播放，仅在每季度开始几周更新下订阅即可。
- 补番  若干PT站，配合Transmission下载食用。
-简述追新番过程  Nas安装相关软件  Aria2 Bgmi   Bgmi设置aria2-rpc配置项  ARIA2_RPC_URL=http://yourlocalip:6800/rpc ARIA2_RPC_TOKEN=token:yourtoken  Nas设置Task Schedule 定时获取更新 Nas配置smb共享 nPlayer通过smb协议连接Nas  </description>
+租赁光盘 种子下载 B站 + 野鸡网站 (嘀哩嘀哩，樱花动漫) Nas + Bgmi + Aria2 Nas + PT + Transmission 现状 新番 使用Bgmi订阅番剧，Nas设置定时脚本每天检索番剧更新，通过Aria2下载至Nas上，配置smb协议文件共享，使用nPlayer连接播放，仅在每季度开始几周更新下订阅即可。
+补番 若干PT站，配合Transmission下载食用。
+简述追新番过程 Nas安装相关软件 Aria2 Bgmi Bgmi设置aria2-rpc配置项 ARIA2_RPC_URL=http://yourlocalip:6800/rpc ARIA2_RPC_TOKEN=token:yourtoken Nas设置Task Schedule 定时获取更新 Nas配置smb共享 nPlayer通过smb协议连接Nas </description>
     </item>
-    
     <item>
       <title>命令集</title>
       <link>https://blog.lbwstco.vercel.app/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</link>
       <pubDate>Wed, 11 Nov 2020 16:19:57 +0800</pubDate>
-      
       <guid>https://blog.lbwstco.vercel.app/p/%E5%91%BD%E4%BB%A4%E9%9B%86/</guid>
-      <description>上传文件至服务器  scp -i ~/.ssh/id_rsa_gcp -r ~/Downloads/kyrie2-top-nginx-1103105800/\*.kyrie2.top_chain.crt lbwstco@0.0.0.0:  查看文件占用  du -h --max-depth=1  查看内存占用  ps auxw|head -1;ps auxw|sort -rn -k4|head -10  删除群晖生成的文件  find / -regex &amp;#39;@SynoEASstream$&amp;#39; -and -t f --delete  查找并移动文件  find ~/Downloads/ -maxdepth 1 -type f -print0 | xargs -0 mv -t ~/Videos  NUC8i5BEH 去除菜单栏网口图标  fn=&amp;#34;.`date +%s`&amp;#34; &amp;amp;&amp;amp; sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu$fn &amp;amp;&amp;amp; sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu  修改地区为台湾 显示旗帜  sudo defaults write /Library/Preferences/.</description>
+      <description>上传文件至服务器 scp -i ~/.ssh/id_rsa_gcp -r ~/Downloads/kyrie2-top-nginx-1103105800/\*.kyrie2.top_chain.crt lbwstco@0.0.0.0: 查看文件占用 du -h --max-depth=1 查看内存占用 ps auxw|head -1;ps auxw|sort -rn -k4|head -10 删除群晖生成的文件 find / -regex &amp;#39;@SynoEASstream$&amp;#39; -and -t f --delete 查找并移动文件 find ~/Downloads/ -maxdepth 1 -type f -print0 | xargs -0 mv -t ~/Videos NUC8i5BEH 去除菜单栏网口图标 fn=&amp;#34;.`date +%s`&amp;#34; &amp;amp;&amp;amp; sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu$fn &amp;amp;&amp;amp; sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu 修改地区为台湾 显示旗帜 sudo defaults write /Library/Preferences/.GlobalPreferences.plist Country -string &amp;#34;TW&amp;#34; 查看端口占用 lsof -i tcp:8080 重启队列 supervisorctl -c worker.</description>
     </item>
-    
   </channel>
 </rss>
